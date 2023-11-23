@@ -1,24 +1,27 @@
-﻿ORG 100      // Start address of the program
+    ORG 100          // Start at address 100
+    LOAD ZERO        // Initialize sum to 0
+    STORE SUM
 
-Main,    LOAD N      // Load the value of N into the accumulator
-         STORE Counter // Initialize the counter variable
-         CLEAR        / Clear the accumulator for the sum
+    LOAD COUNTER     // Load the counter value (3 in this case)
+    STORE COUNTER
 
-Loop,   ADD Result   // Add the value of N to the accumulator (sum)
-         STORE Result // Update the sum variable
-         LOAD Counter // Load the current value of the counter
-         SUBT One     // Decrement the counter
-         STORE Counter // Update the counter variable
-         SKIPCOND 400 // Skip the next instruction if the counter is negative or zero
-         JUMP Loop    // Jump back to the beginning of the loop if the counter is not negative
+ADD_LOOP, LOAD SUM   // Load the current sum
+    ADD NUMBER       // Add the number (4 in this example) to the sum
+    STORE SUM        // Store the new sum
 
-         LOAD Result  // Load the final sum into the accumulator
-         OUTPUT      / Output the result
-         HALT         / Halt the program
+    LOAD COUNTER     // Load the current counter
+    SUBT ONE         // Decrement the counter
+    STORE COUNTER    // Store the new counter value
 
-N,      DEC 4        // Integer N (value to be added)
-Result, DEC 6        // Result variable
-Counter, DEC 3       // Counter variable (number of times to add)
-One,    DEC 1        // Constant value 1
+    SKIPCOND 400     // Check if the counter is zero
+    JUMP ADD_LOOP    // If the counter is not zero, repeat the loop
 
-         END Main     // End of the program
+    LOAD SUM         // Load the final sum
+    OUTPUT           / Output the final sum
+    HALT             / End the program
+
+NUMBER, DEC 4       // The number to be added (4)
+COUNTER, DEC 3      // The number of times to add the number (3)
+SUM,     DEC 0      // The sum, initially 0
+ONE,     DEC 1      // A constant representing the number 1
+ZERO,    DEC 0      // A constant representing the number 0
