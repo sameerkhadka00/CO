@@ -1,0 +1,24 @@
+﻿ORG 100      // Start address of the program
+
+Main,    LOAD N      // Load the value of N into the accumulator
+         STORE Counter // Initialize the counter variable
+         CLEAR        / Clear the accumulator for the sum
+
+Loop,   ADD Result   // Add the value of N to the accumulator (sum)
+         STORE Result // Update the sum variable
+         LOAD Counter // Load the current value of the counter
+         SUBT One     // Decrement the counter
+         STORE Counter // Update the counter variable
+         SKIPCOND 400 // Skip the next instruction if the counter is negative or zero
+         JUMP Loop    // Jump back to the beginning of the loop if the counter is not negative
+
+         LOAD Result  // Load the final sum into the accumulator
+         OUTPUT      / Output the result
+         HALT         / Halt the program
+
+N,      DEC 4        // Integer N (value to be added)
+Result, DEC 6        // Result variable
+Counter, DEC 3       // Counter variable (number of times to add)
+One,    DEC 1        // Constant value 1
+
+         END Main     // End of the program
