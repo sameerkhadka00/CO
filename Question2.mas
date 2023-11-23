@@ -1,0 +1,22 @@
+﻿ORG 100      // Start address of the program
+
+Main,    LOAD Counter   // Load the counter
+         OUTPUT          / Output the current value of the counter
+         ADD One         // Increment the counter
+         STORE Counter   // Store the updated counter value
+
+         // Check if counter is equal to 3
+         SUBT Three      // Subtract 3 from the counter
+         SKIPCOND 400    // Skip the next instruction if the result is negative (counter < 3)
+         JUMP Main       // Jump back to the beginning of the loop
+
+         // Break the loop if counter equals 3
+         JUMP Done        // Jump out of the loop
+
+Done,    HALT            / Halt the program
+
+Counter, DEC 0           // Counter variable (initialize to 0)
+One,     DEC 1           // Constant value 1
+Three,   DEC 3           // Constant value 3
+
+         END Main        // End of the program

@@ -1,0 +1,19 @@
+﻿ORG 100      // Start address of the program
+
+Main,    LOAD H        // Load the ASCII code for 'H' into the accumulator
+         OUTPUT         / Output the character in the accumulator
+         LOAD E        // Load the ASCII code for 'e' into the accumulator
+         OUTPUT         / Output the character in the accumulator
+         LOAD L        // Load the ASCII code for 'l' into the accumulator
+         OUTPUT         / Output the character in the accumulator
+         OUTPUT         / Output the character in the accumulator (second 'l')
+         LOAD O        // Load the ASCII code for 'o' into the accumulator
+         OUTPUT         / Output the character in the accumulator
+         HALT           / Halt the program
+
+H,      HEX 48         // ASCII code for 'H'
+E,      HEX 65         // ASCII code for 'e'
+L,      HEX 6C         // ASCII code for 'l'
+O,      HEX 6F         // ASCII code for 'o'
+
+         END Main       // End of the program

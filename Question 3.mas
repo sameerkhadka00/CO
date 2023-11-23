@@ -1,0 +1,20 @@
+﻿ORG 100      // Start address of the program
+
+Main,    LOAD Counter   // Load the counter
+         OUTPUT          / Output the current value of the counter
+         ADD One         // Increment the counter
+         STORE Counter   // Store the updated counter value
+
+         // Check if counter is less than 5
+         SUBT Five       // Subtract 5 from the counter
+         SKIPCOND 400    // Skip the next instruction if the result is negative (counter < 5)
+         JUMP Main       // Jump back to the beginning of the loop
+
+         // Halt the program if counter equals 5
+         HALT
+
+Counter, DEC 0           // Counter variable (initialize to 0)
+One,     DEC 1           // Constant value 1
+Five,    DEC 5           // Constant value 5
+
+         END Main        // End of the program
